@@ -1,0 +1,21 @@
+function count(multiples, range) {
+    let multiplesList = [];
+
+    for (i = 0; i < multiples.length; i++) {
+        var temp = multiples[i];
+        var idx = 1;
+
+        while (temp < range) {
+            if (multiplesList.includes(temp) == false) {
+                multiplesList.push(temp);
+            }
+            temp += multiples[i];
+        }
+    }
+
+    let total = multiplesList.reduce(function(a, b) { return a + b }, 0);
+    return total;
+}
+
+let result = count([3, 5], 1000);
+console.log("total : " + result);
